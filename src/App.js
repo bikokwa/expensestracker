@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
-const expenses = [
+const expensesA = [
   {
     id: "e1",
     title: "Toilet Paper",
@@ -24,12 +25,14 @@ const expenses = [
 ];
 
 function App() {
+  const [expenses, setExpenses] = useState(expensesA);
+
   const newExpenseHandler = (expenseData) => {
     const newExpense = {
       ...expenseData,
       id: Math.random().toString(),
     };
-    expenses.concat(newExpense);
+    setExpenses((prevState) => prevState.concat(newExpense));
   };
 
   return (
