@@ -25,7 +25,11 @@ const expenses = [
 
 function App() {
   const newExpenseHandler = (expenseData) => {
-    console.log(expenseData);
+    const newExpense = {
+      ...expenseData,
+      id: Math.random().toString(),
+    };
+    expenses.concat(newExpense);
   };
 
   return (
